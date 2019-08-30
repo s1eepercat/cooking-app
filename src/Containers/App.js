@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Preparation from '../Components/Preparation';
+import Preparation from './Preparation';
 import Cooking from '../Components/Cooking';
 import 'tachyons';
 
@@ -15,12 +15,9 @@ class App extends Component {
 
   cookingStart = (event) => {
     this.setState({ cooking: true });
-
-    console.log('Start cooking!');
-    console.log(this.state);
   }
 
-  addEmptyArr = () => { //Rewrites state recipe with an added array recipe
+  addLine = () => { //Rewrites state recipe with an added array recipe
     this.setState(() => {
       let newObj = {};
       let recipeClone = this.state.recipe;
@@ -30,7 +27,7 @@ class App extends Component {
   }
 
   fillRecipe = (event) => {
-    let currentLine = event.target.parentNode.className - 1;
+    let currentLine = event.target.parentNode.className;
     let inputName = event.target.placeholder;
     let value = event.target.value;
     let updatedRecipe = this.state.recipe;
@@ -38,14 +35,13 @@ class App extends Component {
     this.setState(() => {
 
       if (inputName === "food") {
-        updatedRecipe[currentLine].food = value;
+        updatedRecipe[currentLine - 1].food = value;
       } else if (inputName === "action") {
-        updatedRecipe[currentLine].action = value;
+        updatedRecipe[currentLine - 1].action = value;
       } else if (inputName === "time") {
-        updatedRecipe[currentLine].time = value;
+        updatedRecipe[currentLine - 1].time = value;
       };
 
-      console.log(updatedRecipe);
       return updatedRecipe;
     })
   }
@@ -60,7 +56,7 @@ class App extends Component {
         {(cooking === false) ?
           <Preparation
             cookingStart={this.cookingStart}
-            addEmptyArr={this.addEmptyArr}
+            addLine={this.addLine}
             fillRecipe={this.fillRecipe}
           /> : <Cooking />}
       </div>

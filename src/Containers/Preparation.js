@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Start from './Start';
-import Plus from './Plus';
-import Lines from './Lines';
+import Start from '../Components/Start';
+import Plus from '../Components/Plus';
+import Lines from '../Components/Lines';
 
 class Preparation extends Component {
     constructor() {
@@ -13,7 +13,7 @@ class Preparation extends Component {
 
     addLines = (event) => {
         this.setState({ lines: this.state.lines + 1 }); //Adds one recipe line
-        this.props.addEmptyArr(); //Adds an empty array for each recipe line
+        this.props.addLine(); //Adds an empty array for each recipe line
 
         console.log(`+ 1 cooking line, now ${this.state.lines + 1} total.`);
     }
@@ -21,13 +21,13 @@ class Preparation extends Component {
     render() {
 
         return (
-            <div className = 'preparation-container'>
+            <div className='preparation-container'>
                 <h1 className='tc'>Preparation</h1>
 
                 <div>
-                    <Lines 
-                    lines={this.state.lines} /*Passes amount of recipe lines to be generated*/ 
-                    fillRecipe={this.props.fillRecipe}/> 
+                    <Lines
+                        lines={this.state.lines} /*Passes amount of recipe lines to be generated*/
+                        fillRecipe={this.props.fillRecipe} />
                 </div>
 
                 <Plus addLines={this.addLines} />
