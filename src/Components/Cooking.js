@@ -2,7 +2,7 @@ import React from 'react';
 
 const Cooking = (props) => {
     return (
-        <div>
+        <div className='cooking-container'>>
             <h1 className='tc'>Cooking</h1>
         </div>
     );

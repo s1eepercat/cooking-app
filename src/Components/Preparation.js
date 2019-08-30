@@ -3,6 +3,7 @@ import Start from './Start';
 import Plus from './Plus';
 import Input from './Input';
 import Input_sign from './Input-sign';
+import Lines from './Lines';
 
 class Preparation extends Component {
     constructor() {
@@ -14,20 +15,21 @@ class Preparation extends Component {
 
     addLines = (event) => {
         this.setState({ lines: this.state.lines + 1 });
-        console.log(`+ 1 cooking line, now ${this.state.lines} total.`);
+        console.log(`+ 1 cooking line, now ${this.state.lines + 1} total.`);
     }
 
     render() {
 
         return (
-            <div>
+            <div className = 'preparation-container'>
                 <h1 className='tc'>Preparation</h1>
-                <div style={{ overflowY: 'scroll', border: '5px solid black', height: '550px' }}>
 
-
-                    <Plus addLines={this.addLines} />
-                    <Start cookingStart={this.props.cookingStart} />
+                <div>
+                    <Lines lines={this.state.lines}/>
                 </div>
+                
+                <Plus addLines={this.addLines} />
+                <Start cookingStart={this.props.cookingStart} />
             </div >
         );
     }

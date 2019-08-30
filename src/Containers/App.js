@@ -20,17 +20,14 @@ class App extends Component {
   render() {
     const { cooking } = this.state;
 
-    return (cooking === false) ? (
-      <div>
-        <h1 className='tc'>Cooking app</h1>
-        <Preparation cookingStart={this.cookingStart} />
+    return (
+
+      <div className="global-container">
+        <h1 className='cooking-text tc'>Cooking app</h1>
+        {(cooking === false) ? <Preparation cookingStart={this.cookingStart} /> : <Cooking />}
       </div>
-    ) : (
-        <div>
-          <h1 className='tc'>Cooking app</h1>
-          <Cooking />
-        </div>
-      )
+    )
+
   }
 }
 
