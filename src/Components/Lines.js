@@ -10,7 +10,7 @@ const Lines = ({ lines, fillRecipe }) => {
             <div className={`${i}`} key={i}>
                 <input placeholder="food" type="text" onChange={fillRecipe} />
                 <input placeholder="action" type="text" onChange={fillRecipe} />
-                <input placeholder="time" type="time" onClick={fillRecipe} />
+                <input placeholder="time" type="time" onChange={fillRecipe} />
             </div>
         )
     }

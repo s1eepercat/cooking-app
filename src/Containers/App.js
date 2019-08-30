@@ -9,7 +9,7 @@ class App extends Component {
     super();
     this.state = {
       cooking: false, //To trigger cooking rendering
-      recipe: [[]] //Has an empty array inside as we already have the first line
+      recipe: [{}] //Has an empty object inside as we already have the first line
     }
   }
 
@@ -22,35 +22,30 @@ class App extends Component {
 
   addEmptyArr = () => { //Rewrites state recipe with an added array recipe
     this.setState(() => {
-      let newArr = [];
+      let newObj = {};
       let recipeClone = this.state.recipe;
-      recipeClone.push(newArr);
+      recipeClone.push(newObj);
       return recipeClone;
     })
   }
 
   fillRecipe = (event) => {
-    // let length = this.state.recipe.length;
-
-    const currentLine = event.target.parentNode.className;
-    const inputName = event.target.placeholder;
-    const updatedRecipe = this.state.recipe;
+    let currentLine = event.target.parentNode.className - 1;
+    let inputName = event.target.placeholder;
+    let value = event.target.value;
+    let updatedRecipe = this.state.recipe;
 
     this.setState(() => {
 
-      let col = 0;
-
       if (inputName === "food") {
-        col = 0
+        updatedRecipe[currentLine].food = value;
       } else if (inputName === "action") {
-        col = 1
+        updatedRecipe[currentLine].action = value;
       } else if (inputName === "time") {
-        col = 2
+        updatedRecipe[currentLine].time = value;
       };
 
-      updatedRecipe[currentLine][col] = event.target.value;
       console.log(updatedRecipe);
-
       return updatedRecipe;
     })
   }
@@ -60,7 +55,7 @@ class App extends Component {
 
     return (
 
-      <div className="global-container">
+      <div className="global-container" >
         <h1 className='cooking-text tc'>Cooking app</h1>
         {(cooking === false) ?
           <Preparation
