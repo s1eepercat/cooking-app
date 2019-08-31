@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import Start from '../Components/Start';
-import Plus from '../Components/Plus';
-import Lines from '../Components/Lines';
+import Start from '../Components/Preparation/Start';
+import Plus from '../Components/Preparation/Plus';
+import Lines from '../Components/Preparation/Lines';
 
 class Preparation extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             lines: 1
         }

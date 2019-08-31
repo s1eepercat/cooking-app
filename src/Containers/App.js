@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Preparation from './Preparation';
-import Cooking from '../Components/Cooking';
+import Cooking from './Cooking';
 import 'tachyons';
 
 class App extends Component {
@@ -58,7 +58,7 @@ class App extends Component {
             cookingStart={this.cookingStart}
             addLine={this.addLine}
             fillRecipe={this.fillRecipe}
-          /> : <Cooking />}
+          /> : <Cooking finishedRecipe={this.state.recipe} />}
       </div>
     )
 
