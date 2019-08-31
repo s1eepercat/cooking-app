@@ -1,7 +1,14 @@
 import React from 'react';
 
-const Start = () => {
-    return <h1>Start</h1>
+const Start = ({ startCooking, state }) => {
+
+    return (
+        <button
+            onClick={startCooking}
+        >Start!</button>
+
+    );
+
 }
 
 export default Start;

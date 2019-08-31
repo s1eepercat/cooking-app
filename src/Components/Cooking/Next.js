@@ -1,7 +1,7 @@
 import React from "react";
 
 const Next = () => {
-    return <h1>Next</h1>
+    return <button>Next</button>
 }
 
 export default Next;

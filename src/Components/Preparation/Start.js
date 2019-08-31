@@ -8,7 +8,7 @@ const Start = ({ cookingStart }) => {
                 width: '200px',
             }}
             onClick={cookingStart}
-        > Start</button >
+        > Ready to cook!</button >
     );
 }
 
