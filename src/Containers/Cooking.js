@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import StickyBar from '../Components/Cooking/StickyBar';
-import Food from '../Components/Cooking/Food';
-import Action from '../Components/Cooking/Action';
-import Time from '../Components/Cooking/Time';
-import Next from '../Components/Cooking/Next';
-import Timer from '../Components/Cooking/Timer';
 import Start from '../Components/Cooking/Start';
+import PreviousLine from '../Components/Cooking/PreviousLine';
+import NextLine from '../Components/Cooking/NextLine';
+import Options from '../Components/Cooking/Options';
+import Line from '../Components/Cooking/Line';
 
 class Cooking extends Component {
     constructor(props) {
@@ -16,26 +15,24 @@ class Cooking extends Component {
         }
     }
 
-
     render() {
         return (
             <div className='Cooking-container'>
                 <h1 className='tc'>Cooking</h1>
 
-                <div>
-                    <StickyBar />
-                </div>
+                <StickyBar />
 
                 <Start />
 
-                <div>
-                    <Food />
-                    <Action />
-                    <Time />
-                    <Next />
-                    <Timer />
-                </div>
-            </div>
+                <PreviousLine />
+
+                <Line state={this.state} />
+
+                <Options />
+
+                <NextLine />
+
+            </div >
         );
     }
 }

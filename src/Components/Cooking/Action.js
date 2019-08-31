@@ -1,7 +1,13 @@
 import React from "react";
 
-const Action = () => {
-    return <h1>action</h1>
+const Action = ({ state }) => {
+    let line = state.currentLine - 1;
+
+    return (
+        (state.recipe[line].time === undefined) ?
+            <h1>Nothing here</h1> :
+            <h1>{state.recipe[line].action}</h1>
+    )
 }
 
 export default Action;
