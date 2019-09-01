@@ -7,19 +7,19 @@ const Start = ({ startCooking, pauseInitiate, unpauseInitiate, state }) => {
             <button
                 onClick={startCooking}
             >Start!</button>
-    
+
         );
     } else if (state.started === true && state.paused === false) {
         return (
             <button
                 onClick={pauseInitiate}
-            >Pause!</button> 
+            >Pause!</button>
         );
     } else if (state.started === true && state.paused === true) {
         return (
             <button
                 onClick={unpauseInitiate}
-            >Continue!</button> 
+            >Continue!</button>
         );
     }
 

@@ -1,7 +1,9 @@
 import React from "react";
 
-const Timer = () => {
-    return <button>Timer</button>
+const Timer = ({ makeTimer }) => {
+    return <button
+        onClick={makeTimer}
+    >Timer</button>
 }
 
 export default Timer;

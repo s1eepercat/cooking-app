@@ -8,6 +8,8 @@ const Debug = ({ state }) => {
             <p>started: {state.started.toString()}</p>
             <p>paused: {state.paused.toString()}</p>
             <p>nextLine: {state.nextLine.toString()}</p>
+            <p>onBreak: {state.onBreak.toString()}</p>
+            <p>{JSON.stringify(state.timer)}</p>
         </div>
 
     )

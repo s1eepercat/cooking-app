@@ -18,87 +18,119 @@ class Cooking extends Component {
             totalLines: this.props.finishedRecipe.length,
             started: false,
             paused: false,
-            nextLine: false
+            nextLine: false,
+            onBreak: false,
+
+            timers: []
         }
     }
 
     pauseInitiate = () => {
-        this.setState({paused: true});
-        console.log('PAUSE!');
+        if (this.state.started) {
+            this.setState({ paused: true });
+            console.log('PAUSE!');
+        }
     }
 
     unpauseInitiate = () => {
-        this.setState({paused: false});
-        console.log('UNPAUSE!');
+        if (this.state.started) {
+            this.setState({ paused: false });
+            console.log('UNPAUSE!');
+        }
     }
 
     gotoNextLine = () => {
-        console.log('SKIPPING....!');
-        this.setState({nextLine: true});
+        if (this.state.started) {
+            console.log('SKIPPING....!');
+            this.setState({ nextLine: true });
+        }
     }
 
-    startBreak = () => { 
+    makeTimer = () => {
+        if (!this.state.onBreak && this.state.started) {
+
+            const cooking = this;
+
+            function returnUpdatedTimers() {
+                let allTimers = cooking.state.timers;
+                let timedLine = cooking.state.currentLine;
+                allTimers.push(timedLine);
+                return allTimers;
+            }
+
+            const allTimersUpdated = returnUpdatedTimers();
+
+            this.setState({ timers: allTimersUpdated });
+            console.log('CREATING A TIMER');
+            this.setState({ nextLine: true });
+        }
+    }
+
+    startBreak = () => {
 
         const cooking = this;
         let seconds = 0;
 
-            console.log('Break 30 sec!')
+        cooking.setState({ onBreak: true })
 
-            const breakCounter = setInterval(function() {
-    
-                if (cooking.state.paused === false && cooking.state.nextLine === false) {
-                    seconds ++;
-                    console.log(seconds);
-                }
-    
-                if (seconds >= 30 || cooking.state.nextLine === true) {
-                    console.log('BREAK FINISHED');
+        console.log('Break 30 sec!')
 
-                    cooking.setState({nextLine: false});
-                    cooking.startCooking();
-                    clearInterval(breakCounter);
-                }
-    
-            },1000);
+        const breakCounter = setInterval(function () {
+
+            if (cooking.state.paused === false && cooking.state.nextLine === false) {
+                seconds++;
+                console.log(seconds);
+            }
+
+            if (seconds >= 30 || cooking.state.nextLine === true) {
+                console.log('BREAK FINISHED');
+
+                cooking.setState({ onBreak: false })
+                cooking.setState({ nextLine: false });
+                cooking.startCooking();
+                clearInterval(breakCounter);
+            }
+
+        }, 1000);
 
     }
 
     startCooking = () => {
-            const cooking = this;
-            let initialCurrentTime = this.state.recipe[this.state.currentLine - 1].time;
-    
-            if (this.state.started === false) {this.setState({started: true});} //Starts cooking on the first line
+        const cooking = this;
+        let initialCurrentTime = this.state.recipe[this.state.currentLine - 1].time;
 
-            initialCurrentTime = (!initialCurrentTime) ? 6000 : initialCurrentTime; //If time was not set, set it to 10h
+        if (this.state.started === false) { this.setState({ started: true }); } //Starts cooking on the first line
 
-            if (initialCurrentTime) {
-                let seconds = initialCurrentTime * 60;
-    
-                const counter = setInterval(function () {
+        initialCurrentTime = (!initialCurrentTime) ? 6000 : initialCurrentTime; //If time was not set, set it to 10h
 
-                    if (cooking.state.paused === false && cooking.state.nextLine === false) {
-                        seconds--;
-                        console.log(seconds);
+        if (initialCurrentTime) {
+            let seconds = initialCurrentTime * 60;
+
+            const counter = setInterval(function () {
+
+                if (cooking.state.paused === false && cooking.state.nextLine === false) {
+                    seconds--;
+                    console.log(seconds);
+                }
+
+                if (seconds < 1 || cooking.state.nextLine === true) {
+
+                    if (cooking.state.totalLines > cooking.state.currentLine) {
+                        cooking.setState({ currentLine: cooking.state.currentLine + 1 });
+                        console.log(`${cooking.state.currentLine - 1} LINE FINISHED!`);
+
+                        cooking.setState({ nextLine: false });
+                        cooking.startBreak();
+                    } else {
+                        console.log('Cooking finished!');
                     }
-    
-                    if (seconds < 1 || cooking.state.nextLine === true) {                  
-    
-                        if (cooking.state.totalLines > cooking.state.currentLine) {
-                            cooking.setState({ currentLine: cooking.state.currentLine + 1 });
-                            console.log(`${cooking.state.currentLine - 1} LINE FINISHED!`);
 
-                            cooking.setState({nextLine: false});
-                            cooking.startBreak();                         
-                        } else {
-                            console.log('Cooking finished!');
-                        }
-    
-                        clearInterval(counter);
-                    }
-                    
-                }, 1000);
-            } 
+                    clearInterval(counter);
+                }
+
+            }, 1000);
         }
+    }
 
     render() {
 
@@ -108,9 +140,9 @@ class Cooking extends Component {
 
                 <StickyBar />
 
-                <Debug state = {this.state}/>
+                <Debug state={this.state} />
 
-                <Start state={this.state} startCooking={this.startCooking} pauseInitiate={this.pauseInitiate} unpauseInitiate ={this.unpauseInitiate}/>
+                <Start state={this.state} startCooking={this.startCooking} pauseInitiate={this.pauseInitiate} unpauseInitiate={this.unpauseInitiate} />
 
                 <PreviousLine />
 
@@ -118,7 +150,7 @@ class Cooking extends Component {
 
                 <Next gotoNextLine={this.gotoNextLine} />
 
-                <Timer />
+                <Timer makeTimer={this.makeTimer} />
 
                 <NextLine />
 
