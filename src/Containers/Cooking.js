@@ -20,7 +20,6 @@ class Cooking extends Component {
             paused: false,
             nextLine: false,
             onBreak: false,
-
             timers: []
         }
     }

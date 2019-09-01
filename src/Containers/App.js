@@ -33,7 +33,6 @@ class App extends Component {
     let updatedRecipe = this.state.recipe;
 
     this.setState(() => {
-
       if (inputName === "food") {
         updatedRecipe[currentLine - 1].food = value;
       } else if (inputName === "action") {
@@ -53,12 +52,15 @@ class App extends Component {
 
       <div className="global-container" >
         <h1 className='cooking-text tc'>Cooking app</h1>
-        {(cooking === false) ?
+        {(!cooking) ?
           <Preparation
             cookingStart={this.cookingStart}
             addLine={this.addLine}
             fillRecipe={this.fillRecipe}
-          /> : <Cooking finishedRecipe={this.state.recipe} />}
+          /> :
+          <Cooking
+            finishedRecipe={this.state.recipe}
+          />}
       </div>
     )
 
