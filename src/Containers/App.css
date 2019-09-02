@@ -17,14 +17,14 @@ body {
   font-family: 'Amatic SC', cursive;
   font-size: 48px;
   margin: 0;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   text-align: center;
 }
 
 .preparation-lines {
   display: flex;
   justify-content: center;
-  margin-bottom: 25px;
+  padding: 20px;
 }
 
 .inputs {
@@ -35,7 +35,16 @@ body {
   font-size: 16px;
   margin: 10px;
   margin-bottom: 5px;
-  min-width: 220px;
+  min-width: 350px;
+  max-width: 20%
+}
+
+.food-input {
+  min-width: 210px;
+}
+
+.time-input {
+  min-width: 210px;
 }
 
 .input-number {
@@ -49,7 +58,7 @@ body {
 }
 
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 1000px) {
   .cooking-text {
     font-size: 48px;
   }
@@ -62,4 +71,10 @@ body {
   .preparation-lines {
     flex-direction: column;
   }
+
+  .inputs {
+    min-width: 0;
+    max-width: 100%;
+  }
+
 }
