@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import Preparation from './Preparation';
 import Cooking from './Cooking';
-import 'tachyons';
 
 class App extends Component {
   constructor() {
@@ -27,8 +26,8 @@ class App extends Component {
   }
 
   fillRecipe = (event) => {
-    let currentLine = event.target.parentNode.className;
-    let inputName = event.target.placeholder;
+    let currentLine = event.target.parentNode.id;
+    let inputName = event.target.id;
     let value = event.target.value;
     let updatedRecipe = this.state.recipe;
 
@@ -51,7 +50,7 @@ class App extends Component {
     return (
 
       <div className="global-container" >
-        <h1 className='cooking-text tc'>Cooking Upp</h1>
+        <h1 className='cooking-text'>Cooking Upp</h1>
         {(!cooking) ?
           <Preparation
             cookingStart={this.cookingStart}

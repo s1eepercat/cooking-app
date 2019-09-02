@@ -22,7 +22,7 @@ class Preparation extends Component {
 
         return (
             <div className='preparation-container'>
-                <h1 className='tc'>Preparation</h1>
+                <h1 className='title-text'>Preparation..</h1>
 
                 <div>
                     <Lines

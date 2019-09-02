@@ -135,7 +135,7 @@ class Cooking extends Component {
 
         return (
             <div className='Cooking-container'>
-                <h1 className='tc'>Cooking</h1>
+                <h1 className='title-text'>Cooking!</h1>
 
                 <StickyBar recipe={this.state.recipe} timers={this.state.timers} />
 
