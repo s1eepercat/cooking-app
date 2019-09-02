@@ -9,15 +9,15 @@ const Line = ({ state }) => {
         return (
             <div className='flex'>
                 <div className="pa3 w-33 tc">
-                    <Food state={state} />
+                    <Food state={state} line={state.currentLine - 1} />
                 </div>
 
                 <div className="pa3 w-33 tc">
-                    <Action state={state} />
+                    <Action state={state} line={state.currentLine - 1} />
                 </div>
 
                 <div className="pa3 w-33 tc">
-                    <Time state={state} />
+                    <Time state={state} line={state.currentLine - 1} />
                 </div>
             </div>
         );

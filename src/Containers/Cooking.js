@@ -145,7 +145,7 @@ class Cooking extends Component {
 
                 <Start state={this.state} startCooking={this.startCooking} pauseInitiate={this.pauseInitiate} unpauseInitiate={this.unpauseInitiate} />
 
-                <PreviousLine />
+                <PreviousLine state={this.state} />
 
                 <Line state={this.state} /> {/*Info for a user*/}
 
@@ -153,7 +153,7 @@ class Cooking extends Component {
 
                 <Timer makeTimer={this.makeTimer} />
 
-                <NextLine />
+                <NextLine state={this.state} />
 
             </div >
         );
