@@ -51,7 +51,7 @@ class App extends Component {
     return (
 
       <div className="global-container" >
-        <h1 className='cooking-text tc'>Cooking app</h1>
+        <h1 className='cooking-text tc'>Cooking Upp</h1>
         {(!cooking) ?
           <Preparation
             cookingStart={this.cookingStart}

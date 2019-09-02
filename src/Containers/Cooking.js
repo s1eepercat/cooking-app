@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import StickyBar from '../Components/Cooking/StickyBar';
-import Start from '../Components/Cooking/Start';
-import PreviousLine from '../Components/Cooking/PreviousLine';
-import NextLine from '../Components/Cooking/NextLine';
-import Next from '../Components/Cooking/Next';
-import Timer from '../Components/Cooking/Timer';
-import Line from '../Components/Cooking/Line';
-
-import Debug from '../Components/Cooking/Debug';
+import StickyBar from '../Components/Cooking/Lines/StickyBar';
+import Start from '../Components/Cooking/Buttons/Start';
+import PreviousLine from '../Components/Cooking/Lines/PreviousLine';
+import NextLine from '../Components/Cooking/Lines/NextLine';
+import Next from '../Components/Cooking/Buttons/Next';
+import Timer from '../Components/Cooking/Buttons/Timer';
+import Line from '../Components/Cooking/Lines/Line';
 
 class Cooking extends Component {
     constructor(props) {
@@ -140,8 +138,6 @@ class Cooking extends Component {
                 <h1 className='tc'>Cooking</h1>
 
                 <StickyBar recipe={this.state.recipe} timers={this.state.timers} />
-
-                {/* <Debug state={this.state} /> */}
 
                 <Start state={this.state} startCooking={this.startCooking} pauseInitiate={this.pauseInitiate} unpauseInitiate={this.unpauseInitiate} />
 

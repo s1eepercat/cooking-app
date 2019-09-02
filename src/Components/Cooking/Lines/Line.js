@@ -1,7 +1,7 @@
 import React from 'react';
-import Food from './Food';
-import Action from './Action';
-import Time from './Time';
+import Food from '../Text_in_lines/Food';
+import Action from '../Text_in_lines/Action';
+import Time from '../Text_in_lines/Time';
 
 const Line = ({ state }) => {
 
