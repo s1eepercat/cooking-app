@@ -20,7 +20,8 @@ class Cooking extends Component {
             paused: false,
             nextLine: false,
             onBreak: false,
-            timers: []
+            timers: [],
+            done: false
         }
     }
 
@@ -122,6 +123,7 @@ class Cooking extends Component {
                         cooking.startBreak();
                     } else {
                         console.log('Cooking finished!');
+                        cooking.setState({ done: true });
                     }
 
                     clearInterval(counter);
@@ -137,7 +139,7 @@ class Cooking extends Component {
             <div className='Cooking-container'>
                 <h1 className='tc'>Cooking</h1>
 
-                <StickyBar recipe={this.recipe} timers={this.timers} />
+                <StickyBar recipe={this.state.recipe} timers={this.state.timers} />
 
                 {/* <Debug state={this.state} /> */}
 
