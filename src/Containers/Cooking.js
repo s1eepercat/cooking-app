@@ -137,9 +137,9 @@ class Cooking extends Component {
             <div className='Cooking-container'>
                 <h1 className='tc'>Cooking</h1>
 
-                <StickyBar />
+                <StickyBar recipe={this.recipe} timers={this.timers} />
 
-                <Debug state={this.state} />
+                {/* <Debug state={this.state} /> */}
 
                 <Start state={this.state} startCooking={this.startCooking} pauseInitiate={this.pauseInitiate} unpauseInitiate={this.unpauseInitiate} />
 
