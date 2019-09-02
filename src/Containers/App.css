@@ -39,13 +39,10 @@ body {
   max-width: 20%
 }
 
-.food-input {
+.mini-input {
   min-width: 210px;
 }
 
-.time-input {
-  min-width: 210px;
-}
 
 .input-number {
   color: #010100;
