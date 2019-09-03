@@ -48,7 +48,7 @@ body {
 }
 
 .mini-input {
-  min-width: 210px;
+  min-width: 235px;
 }
 
 
@@ -70,14 +70,13 @@ body {
 }
 
 .plus {
-  font-size: 16px;
-  font-family: 'Chilanka', cursive;
+  font-size: 30px;
+  font-family: 'Amatic SC', cursive;
   font-weight: 700;
   border: 1px solid #AA7D39;
   border-radius: 5px;
   background-color: #AA7D39;
   padding: 10px;
-  padding-top: 13px;
   margin: 10px;
 }
 
@@ -90,14 +89,13 @@ body {
 }
 
 .start {
-  font-size: 16px;
-  font-family: 'Chilanka', cursive;
+  font-size: 30px;
+  font-family: 'Amatic SC', cursive;
   font-weight: 700;
   border: 1px solid green;
   border-radius: 5px;
   background-color: green;
   padding: 10px;
-  padding-top: 13px;
   margin: 10px;
 }
 
