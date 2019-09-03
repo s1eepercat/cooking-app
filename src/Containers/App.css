@@ -24,19 +24,27 @@ body {
 .preparation-lines {
   display: flex;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
 }
 
 .inputs {
+  font-family: 'Chilanka', cursive;
+  font-weight: 700;
+  font-size: 16px;
   background-color: #FFF0DA;
-  padding: 10px;
   border: 1px solid #AA7D39;
   border-radius: 5px;
-  font-size: 16px;
+  padding: 10px;
+  padding-top: 13px;
   margin: 10px;
   margin-bottom: 5px;
+
   min-width: 350px;
-  max-width: 20%
+  max-width: 20%;
+}
+
+.inputs:focus {
+  outline:0;
 }
 
 .mini-input {
@@ -45,14 +53,63 @@ body {
 
 
 .input-number {
-  color: #010100;
-  font-family: 'Amatic SC', cursive;
-  font-weight: bold;
-  padding: 10px;
   font-size: 16px;
+  font-family: 'Chilanka', cursive;
+  font-weight: 700;
+  color: #010100;
   margin: 10px;
   margin-bottom: 5px;
+  padding: 10px;
+  padding-top: 13px;
 }
+
+.option-container {
+  display: flex;
+  justify-content: center;
+  padding: 30px;
+}
+
+.plus {
+  font-size: 16px;
+  font-family: 'Chilanka', cursive;
+  font-weight: 700;
+  border: 1px solid #AA7D39;
+  border-radius: 5px;
+  background-color: #AA7D39;
+  padding: 10px;
+  padding-top: 13px;
+  margin: 10px;
+}
+
+.plus:hover {
+  background-color: white;
+}
+
+.plus:focus {
+  outline:0;
+}
+
+.start {
+  font-size: 16px;
+  font-family: 'Chilanka', cursive;
+  font-weight: 700;
+  border: 1px solid green;
+  border-radius: 5px;
+  background-color: green;
+  padding: 10px;
+  padding-top: 13px;
+  margin: 10px;
+}
+
+.start:hover {
+  background-color: white;
+}
+
+.start:focus {
+  outline:0;
+}
+
+
 
 
 @media only screen and (max-width: 1000px) {
@@ -67,6 +124,7 @@ body {
 
   .preparation-lines {
     flex-direction: column;
+    padding: 20px;
   }
 
   .inputs {

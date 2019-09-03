@@ -30,8 +30,10 @@ class Preparation extends Component {
                         fillRecipe={this.props.fillRecipe} />
                 </div>
 
-                <Plus addLines={this.addLines} />
-                <Start cookingStart={this.props.cookingStart} />
+                <div className='option-container'>
+                    <Plus addLines={this.addLines} />
+                    <Start cookingStart={this.props.cookingStart} />
+                </div>
             </div >
         );
     }

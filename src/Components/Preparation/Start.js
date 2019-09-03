@@ -3,7 +3,7 @@ import React from 'react';
 const Start = ({ cookingStart }) => {
     return (
         <button
-            className='pa3'
+            className='start'
             style={{
                 width: '200px',
             }}

@@ -3,12 +3,12 @@ import React from 'react';
 const Plus = ({ addLines }) => {
     return (
         <button
-            className='pa3'
+            className='plus'
             style={{
                 width: '200px',
             }}
             onClick={addLines}
-        > + </button >
+        > Add line </button >
     );
 }
 
