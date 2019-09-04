@@ -1,3 +1,29 @@
 body {
   background: linear-gradient(to right, rgb(254, 214, 151), rgb(252, 193, 97));
 }
+
+.navbar {
+  position: fixed;
+  height: 30px;
+  background-color: black;
+  width: 100%;
+}
+
+.cooking-text {
+  color: #AA7D39;
+  font-size: 96px;
+  font-family: 'Amatic SC', cursive;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 25px;
+  padding-top: 90px;
+}
+
+.title-text {
+  color: #010100;
+  font-family: 'Amatic SC', cursive;
+  font-size: 48px;
+  margin: 0;
+  margin-bottom: 30px;
+  text-align: center;
+}

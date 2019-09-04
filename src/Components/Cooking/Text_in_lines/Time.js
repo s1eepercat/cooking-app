@@ -1,6 +1,6 @@
 import React from "react";
 
-const Time = ({ state, line }) => {
+const Time = ({ state, line, timerIs }) => {
 
     const secondsToHour = (sec) => {
         sec = Number(sec);
@@ -15,14 +15,23 @@ const Time = ({ state, line }) => {
     }
 
     if (line >= 0) {
-        return (
-            (state.recipe[line].time === undefined) ?
-                <p>Time is not set</p> :
-                <p>{(state.started === false) ? (secondsToHour(state.recipe[line].time * 60)) : (
-                    (state.currentLineSeconds !== 0) ?
-                        (secondsToHour(state.currentLineSeconds)) : (secondsToHour(state.recipe[line].time * 60))
-                )}</p>
-        )
+        if (timerIs === 'going') {
+            return (
+                (state.recipe[line].time === undefined) ?
+                    <p>Time is not set</p> :
+                    <p>{(state.started === false) ? (secondsToHour(state.recipe[line].time * 60)) : (
+                        (state.currentLineSeconds !== 0) ?
+                            (secondsToHour(state.currentLineSeconds)) : (secondsToHour(state.recipe[line].time * 60))
+                    )}</p>
+            )
+        } else {
+            return (
+                (state.recipe[line].time === undefined) ?
+                    <p>Time is not set</p> :
+                    <p>{secondsToHour(state.recipe[line].time * 60)}</p>
+            )
+        }
+
     } else {
         return <p>---</p>
     }

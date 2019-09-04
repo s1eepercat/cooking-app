@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Preparation from './Preparation';
 import Cooking from './Cooking';
+import ReactNoSleep from 'react-no-sleep';
 
 class App extends Component {
   constructor() {
@@ -56,8 +57,18 @@ class App extends Component {
     const { cooking } = this.state;
 
     return (
-
       <div className="global-container" >
+
+      <div className="navbar">
+        <ReactNoSleep>
+          {({ isOn, enable, disable }) => (
+            <button onClick={isOn ? disable : enable}>
+              {isOn ? 'is on' : 'is off'}
+            </button>
+          )}
+        </ReactNoSleep>
+      </div>
+
         <h1 className='cooking-text'>Cooking Upp</h1>
         {(!cooking) ?
           <Preparation

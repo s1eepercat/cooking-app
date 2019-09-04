@@ -44,6 +44,8 @@ class Cooking extends Component {
         if (this.state.started) {
             console.log('SKIPPING....!');
             this.setState({ nextLine: true });
+            if (this.state.onBreak === true) this.setState({ currentLineSeconds: 0 }); //Reseting timers to remove timer delays on switch
+            if (this.state.onBreak === false) this.setState({ currentBreakSeconds: 0 });
         }
     }
 

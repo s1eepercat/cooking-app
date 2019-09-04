@@ -20,7 +20,7 @@ const NextLine = ({ state }) => {
                 </div>
 
                 <div className="pa3 w-33 tc">
-                    <Time state={state} line={line} />
+                    <Time state={state} line={line} timerIs={'static'} />
                 </div>
             </div>
         );

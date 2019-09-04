@@ -20,7 +20,7 @@ const Line = ({ state }) => {
                         </div>
                     </div>
                     <div className="current-line-time">
-                        <Time state={state} line={state.currentLine - 1} />
+                        <Time state={state} line={state.currentLine - 1} timerIs={'going'} />
                     </div>
                 </div>
             );
