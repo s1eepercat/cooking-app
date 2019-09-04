@@ -34,7 +34,11 @@ const Line = ({ state }) => {
         }
 
     } else {
-        return <h1>Everything is done!</h1>
+        return (
+            <div className='done-container'>
+                <p className='done-text'>Everything is done!</p>
+            </div>
+        )
     }
 }
 

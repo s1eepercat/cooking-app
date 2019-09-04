@@ -10,7 +10,7 @@ const Action = ({ state, line }) => {
                 <p>{state.recipe[line].action}</p>
         )
     } else {
-        return <p>---</p>
+        return <p></p>
     }
 }
 

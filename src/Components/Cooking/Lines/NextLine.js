@@ -10,22 +10,22 @@ const NextLine = ({ state }) => {
 
     if (state.currentLine < state.totalLines || state.onBreak === true) {
         return (
-            <div className='flex'>
-                <div className="pa3 w-33 tc">
+            <div className='next-line'>
+                <div className="next-text">
                     <Food state={state} line={line} />
                 </div>
 
-                <div className="pa3 w-33 tc">
+                <div className="next-text">
                     <Action state={state} line={line} />
                 </div>
 
-                <div className="pa3 w-33 tc">
+                <div className="next-text">
                     <Time state={state} line={line} timerIs={'static'} />
                 </div>
             </div>
         );
     } else {
-        return <p></p>
+        return <div className='next-line'></div>
     }
 }
 

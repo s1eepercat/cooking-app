@@ -33,7 +33,7 @@ const Time = ({ state, line, timerIs }) => {
         }
 
     } else {
-        return <p>---</p>
+        return <p></p>
     }
 }
 

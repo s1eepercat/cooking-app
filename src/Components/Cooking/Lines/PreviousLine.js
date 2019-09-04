@@ -14,16 +14,16 @@ const PreviousLine = ({ state }) => {
     }
 
     return (
-        <div className='flex'>
-            <div className="pa3 w-33 tc">
+        <div className='previous-line'>
+            <div className="previous-text">
                 <Food state={state} line={line} />
             </div>
 
-            <div className="pa3 w-33 tc">
+            <div className="previous-text">
                 <Action state={state} line={line} />
             </div>
 
-            <div className="pa3 w-33 tc">
+            <div className="previous-text">
                 <Time state={state} line={line} />
             </div>
         </div>

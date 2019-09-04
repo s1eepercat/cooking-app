@@ -10,7 +10,7 @@ const Food = ({ state, line }) => {
                 <p>{state.recipe[line].food}</p>
         )
     } else {
-        return <p>---</p>
+        return <p></p>
     }
 
 }

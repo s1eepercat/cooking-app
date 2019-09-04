@@ -1,5 +1,5 @@
 .current-line {
-    background-color: #FFF0DA;
+    background-color: #5AB439;
     font-family: 'Chilanka', cursive;
     font-weight: 700;
     font-size: 20px;
@@ -48,6 +48,50 @@
 .break-time {
     text-align: center;
     font-size: 48px;
+    padding: 25px;
+    padding-bottom: 15px;
+    margin: 0;
+}
+
+.next-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #FFF0DA;
+    min-height: 75px;
+    
+}
+
+.next-text > p {
+    margin: 0;
+    padding: 20px;
+}
+
+
+.previous-line {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #FFF0DA;
+    min-height: 75px;
+    
+}
+
+.previous-text > p {
+    margin: 0;
+    padding: 20px;
+}
+
+.done-container {
+    background-color: rgb(86, 163, 250);
+    font-family: 'Chilanka', cursive;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.done-text {
+    text-align: center;
+    font-size: 40px;
     padding: 25px;
     padding-bottom: 15px;
     margin: 0;
