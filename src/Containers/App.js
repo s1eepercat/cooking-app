@@ -31,6 +31,14 @@ class App extends Component {
     let value = event.target.value;
     let updatedRecipe = this.state.recipe;
 
+    if (!isNaN(value) && inputName === 'time') {
+      if (value < 0) {
+        value = 1
+      } else if (value > 300) {
+        value = 300;
+      }
+    }
+
     this.setState(() => {
       if (inputName === "food") {
         updatedRecipe[currentLine - 1].food = value;

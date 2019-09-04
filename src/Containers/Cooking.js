@@ -6,6 +6,7 @@ import NextLine from '../Components/Cooking/Lines/NextLine';
 import Next from '../Components/Cooking/Buttons/Next';
 import Timer from '../Components/Cooking/Buttons/Timer';
 import Line from '../Components/Cooking/Lines/Line';
+import './Cooking.css';
 
 class Cooking extends Component {
     constructor(props) {
@@ -19,7 +20,9 @@ class Cooking extends Component {
             nextLine: false,
             onBreak: false,
             timers: [],
-            done: false
+            done: false,
+            currentLineSeconds: 0,
+            currentBreakSeconds: 0
         }
     }
 
@@ -77,7 +80,8 @@ class Cooking extends Component {
 
             if (cooking.state.paused === false && cooking.state.nextLine === false) {
                 seconds++;
-                console.log(seconds);
+                cooking.setState({ currentBreakSeconds: seconds });
+                console.log(cooking.state.currentBreakSeconds);
             }
 
             if (seconds >= 30 || cooking.state.nextLine === true) {
@@ -108,7 +112,7 @@ class Cooking extends Component {
 
                 if (cooking.state.paused === false && cooking.state.nextLine === false) {
                     seconds--;
-                    console.log(seconds);
+                    cooking.setState({ currentLineSeconds: seconds });
                 }
 
                 if (seconds < 1 || cooking.state.nextLine === true) {
@@ -134,22 +138,27 @@ class Cooking extends Component {
     render() {
 
         return (
-            <div className='Cooking-container'>
+            <div className='cooking-container'>
                 <h1 className='title-text'>Cooking!</h1>
 
                 <StickyBar recipe={this.state.recipe} timers={this.state.timers} />
 
-                <Start state={this.state} startCooking={this.startCooking} pauseInitiate={this.pauseInitiate} unpauseInitiate={this.unpauseInitiate} />
 
                 <PreviousLine state={this.state} />
 
                 <Line state={this.state} /> {/*Info for a user*/}
 
-                <Next gotoNextLine={this.gotoNextLine} />
-
-                <Timer makeTimer={this.makeTimer} />
-
                 <NextLine state={this.state} />
+
+
+                <div className='option-container'>
+                    <Start state={this.state} startCooking={this.startCooking} pauseInitiate={this.pauseInitiate} unpauseInitiate={this.unpauseInitiate} />
+
+                    <Next gotoNextLine={this.gotoNextLine} />
+
+                    <Timer makeTimer={this.makeTimer} />
+                </div>
+
 
             </div >
         );

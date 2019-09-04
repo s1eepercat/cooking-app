@@ -6,11 +6,11 @@ const Food = ({ state, line }) => {
     if (line >= 0) {
         return (
             (state.recipe[line].food === undefined) ?
-                <h1>Nothing here</h1> :
-                <h1>{state.recipe[line].food}</h1>
+                <p>No product</p> :
+                <p>{state.recipe[line].food}</p>
         )
     } else {
-       return <h1>---</h1> 
+        return <p>---</p>
     }
 
 }

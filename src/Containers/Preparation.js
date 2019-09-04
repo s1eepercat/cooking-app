@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Start from '../Components/Preparation/Start';
 import Plus from '../Components/Preparation/Plus';
 import Lines from '../Components/Preparation/Lines';
+import './Preparation.css';
 
 class Preparation extends Component {
     constructor(props) {

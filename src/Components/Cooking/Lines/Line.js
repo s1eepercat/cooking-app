@@ -6,21 +6,33 @@ import Time from '../Text_in_lines/Time';
 const Line = ({ state }) => {
 
     if (state.done === false) {
-        return (
-            <div className='flex'>
-                <div className="pa3 w-33 tc">
-                    <Food state={state} line={state.currentLine - 1} />
-                </div>
 
-                <div className="pa3 w-33 tc">
-                    <Action state={state} line={state.currentLine - 1} />
-                </div>
+        if (state.onBreak === false) {
 
-                <div className="pa3 w-33 tc">
-                    <Time state={state} line={state.currentLine - 1} />
+            return (
+                <div className='current-line'>
+                    <div className='current-line-text-container'>
+                        <div className='current-line-text'>
+                            <Food state={state} line={state.currentLine - 1} />
+                        </div>
+                        <div className='current-line-text'>
+                            <Action state={state} line={state.currentLine - 1} />
+                        </div>
+                    </div>
+                    <div className="current-line-time">
+                        <Time state={state} line={state.currentLine - 1} />
+                    </div>
                 </div>
-            </div>
-        );
+            );
+        } else {
+            return (
+                <div className='break-container'>
+                    <p className='break-text'>Get ready:</p>
+                    <p className='break-time'> {30 - state.currentBreakSeconds} sec</p>
+                </div>
+            );
+        }
+
     } else {
         return <h1>Everything is done!</h1>
     }

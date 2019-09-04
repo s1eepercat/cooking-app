@@ -5,9 +5,10 @@ import Time from '../Text_in_lines/Time';
 
 const NextLine = ({ state }) => {
 
-    let line = state.currentLine;
 
-    if (state.currentLine < state.totalLines) {
+    let line = (state.onBreak === false) ? state.currentLine : state.currentLine - 1;
+
+    if (state.currentLine < state.totalLines || state.onBreak === true) {
         return (
             <div className='flex'>
                 <div className="pa3 w-33 tc">

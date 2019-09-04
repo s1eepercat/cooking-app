@@ -1,0 +1,54 @@
+.current-line {
+    background-color: #FFF0DA;
+    font-family: 'Chilanka', cursive;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.current-line-text-container {
+    display: flex;
+    justify-content: center;
+}
+
+.current-line-text {
+    padding: 25px;
+    padding-bottom: 15px;
+}
+
+.current-line-time {
+    text-align: center;
+    font-size: 48px;
+    padding: 25px;
+    padding-bottom: 15px;
+}
+
+.current-line-text > p {
+    margin: 0;
+}
+
+.current-line-time > p {
+    margin: 0;
+}
+
+.break-container {
+    background-color: rgb(246, 124, 87);
+    font-family: 'Chilanka', cursive;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.break-text {
+    text-align: center;
+    font-size: 20px;
+    padding: 25px;
+    padding-bottom: 15px;
+    margin: 0;
+}
+
+.break-time {
+    text-align: center;
+    font-size: 48px;
+    padding: 25px;
+    padding-bottom: 15px;
+    margin: 0;
+}
