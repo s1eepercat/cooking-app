@@ -22,27 +22,25 @@ class Cooking extends Component {
             timers: [],
             done: false,
             currentLineSeconds: 0,
-            currentBreakSeconds: 0
+            currentBreakSeconds: 0,
+            makeTimerPrevent: false
         }
     }
 
     pauseInitiate = () => {
-        if (this.state.started) {
+        if (this.state.started && !this.state.done) {
             this.setState({ paused: true });
-            console.log('PAUSE!');
         }
     }
 
     unpauseInitiate = () => {
-        if (this.state.started) {
+        if (this.state.started && !this.state.done) {
             this.setState({ paused: false });
-            console.log('UNPAUSE!');
         }
     }
 
     gotoNextLine = () => {
         if (this.state.started) {
-            console.log('SKIPPING....!');
             this.setState({ nextLine: true });
             if (this.state.onBreak === true) this.setState({ currentLineSeconds: 0 }); //Reseting timers to remove timer delays on switch
             if (this.state.onBreak === false) this.setState({ currentBreakSeconds: 0 });
@@ -50,7 +48,9 @@ class Cooking extends Component {
     }
 
     makeTimer = () => {
-        if (!this.state.onBreak && this.state.started) {
+        if (!this.state.onBreak && this.state.started && !this.state.done && !this.state.makeTimerPrevent) {
+
+            this.setState({ makeTimerPrevent: true }); //Debug: prevents from double click > error on the very end (startCooking return it to false)
 
             const cooking = this;
 
@@ -64,39 +64,36 @@ class Cooking extends Component {
             const allTimersUpdated = returnUpdatedTimers();
 
             this.setState({ timers: allTimersUpdated });
-            console.log('CREATING A TIMER');
+
+            //Add current seconds on that line into a recipe to create a fixed top line with that remaining time
+            let currentRecipe = this.state.recipe;
+            currentRecipe[this.state.currentLine - 1].timer = this.state.currentLineSeconds;
+            this.setState({ recipe: currentRecipe });
+
             this.setState({ nextLine: true });
         }
     }
 
     startBreak = () => {
-
         const cooking = this;
         let seconds = 0;
 
         cooking.setState({ onBreak: true })
-
-        console.log('Break 30 sec!')
 
         const breakCounter = setInterval(function () {
 
             if (cooking.state.paused === false && cooking.state.nextLine === false) {
                 seconds++;
                 cooking.setState({ currentBreakSeconds: seconds });
-                console.log(cooking.state.currentBreakSeconds);
             }
 
             if (seconds >= 30 || cooking.state.nextLine === true) {
-                console.log('BREAK FINISHED');
-
                 cooking.setState({ onBreak: false })
                 cooking.setState({ nextLine: false });
                 cooking.startCooking();
                 clearInterval(breakCounter);
             }
-
         }, 1000);
-
     }
 
     startCooking = () => {
@@ -121,12 +118,10 @@ class Cooking extends Component {
 
                     if (cooking.state.totalLines > cooking.state.currentLine) {
                         cooking.setState({ currentLine: cooking.state.currentLine + 1 });
-                        console.log(`${cooking.state.currentLine - 1} LINE FINISHED!`);
-
                         cooking.setState({ nextLine: false });
+                        cooking.setState({ makeTimerPrevent: false }); //Needed for debug, see ()
                         cooking.startBreak();
                     } else {
-                        console.log('Cooking finished!');
                         cooking.setState({ done: true });
                     }
 
@@ -143,7 +138,9 @@ class Cooking extends Component {
             <div className='cooking-container'>
                 <h1 className='title-text'>Cooking!</h1>
 
-                <StickyBar recipe={this.state.recipe} timers={this.state.timers} />
+                <div className='sticky-bar'>
+                    <StickyBar recipe={this.state.recipe} timers={this.state.timers} />
+                </div>
 
 
                 <PreviousLine state={this.state} />
@@ -156,9 +153,9 @@ class Cooking extends Component {
                 <div className='option-container'>
                     <Start state={this.state} startCooking={this.startCooking} pauseInitiate={this.pauseInitiate} unpauseInitiate={this.unpauseInitiate} />
 
-                    <Next gotoNextLine={this.gotoNextLine} />
+                    <Next gotoNextLine={this.gotoNextLine} state={this.state} />
 
-                    <Timer makeTimer={this.makeTimer} />
+                    <Timer makeTimer={this.makeTimer} state={this.state} />
                 </div>
 
 

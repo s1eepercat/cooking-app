@@ -59,7 +59,7 @@ class App extends Component {
     return (
       <div className="global-container" >
 
-      <div className="navbar">
+        {/* <div className="navbar">
         <ReactNoSleep>
           {({ isOn, enable, disable }) => (
             <button onClick={isOn ? disable : enable}>
@@ -67,7 +67,7 @@ class App extends Component {
             </button>
           )}
         </ReactNoSleep>
-      </div>
+      </div> */}
 
         <h1 className='cooking-text'>Cooking Upp</h1>
         {(!cooking) ?

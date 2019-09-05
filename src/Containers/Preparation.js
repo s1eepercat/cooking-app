@@ -15,8 +15,6 @@ class Preparation extends Component {
     addLines = (event) => {
         this.setState({ lines: this.state.lines + 1 }); //Adds one recipe line
         this.props.addLine(); //Adds an empty array for each recipe line
-
-        console.log(`+ 1 cooking line, now ${this.state.lines + 1} total.`);
     }
 
     render() {

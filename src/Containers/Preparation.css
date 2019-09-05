@@ -56,6 +56,7 @@
     background-color: #AA7D39;
     padding: 10px;
     margin: 10px;
+    width: 200px;
   }
   
   .plus:hover {
@@ -66,7 +67,7 @@
     outline:0;
   }
   
-  .start {
+  .cook {
     font-size: 30px;
     font-family: 'Amatic SC', cursive;
     font-weight: 700;
@@ -75,13 +76,14 @@
     background-color: #5AB439;
     padding: 10px;
     margin: 10px;
+    width: 200px;
   }
   
-  .start:hover {
+  .cook:hover {
     background-color: white;
   }
   
-  .start:focus {
+  .cook:focus {
     outline:0;
   }
   
@@ -89,15 +91,7 @@
   
   
   @media only screen and (max-width: 1000px) {
-    .cooking-text {
-      font-size: 48px;
-    }
-  
-    .title-text {
-      font-size: 32px;
-      margin-bottom: 25px;
-    }
-  
+ 
     .preparation-lines {
       flex-direction: column;
       padding: 20px;

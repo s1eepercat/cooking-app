@@ -3,6 +3,7 @@
     font-family: 'Chilanka', cursive;
     font-weight: 700;
     font-size: 20px;
+    height: 155px;
 }
 
 .current-line-text-container {
@@ -35,6 +36,7 @@
     font-family: 'Chilanka', cursive;
     font-weight: 700;
     font-size: 20px;
+    height: 155px;
 }
 
 .break-text {
@@ -58,13 +60,15 @@
     justify-content: center;
     align-items: center;
     border: 2px solid #FFF0DA;
+    background-color: rgb(151, 235, 121);
     min-height: 75px;
-    
 }
 
 .next-text > p {
     margin: 0;
     padding: 20px;
+    font-family: 'Chilanka', cursive;
+    font-weight: 700;
 }
 
 
@@ -73,26 +77,103 @@
     justify-content: center;
     align-items: center;
     border: 2px solid #FFF0DA;
+    background-color: rgb(151, 235, 121);
     min-height: 75px;
-    
+    margin-top: 50px;
 }
 
 .previous-text > p {
     margin: 0;
     padding: 20px;
+    text-decoration: line-through solid rgb(246, 124, 87);
+    font-family: 'Chilanka', cursive;
+    font-weight: 700;
 }
 
+
 .done-container {
+    display: flex;
     background-color: rgb(86, 163, 250);
     font-family: 'Chilanka', cursive;
     font-weight: 700;
     font-size: 20px;
+    height: 155px;
+    justify-content: center;
+    align-items: center;
 }
 
 .done-text {
-    text-align: center;
     font-size: 40px;
     padding: 25px;
     padding-bottom: 15px;
     margin: 0;
+}
+
+.next {
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+    border: 1px solid #5AB439;
+    border-radius: 5px;
+    background-color: #5AB439;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+}
+
+.start {
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+    border: 1px solid #5AB439;
+    border-radius: 5px;
+    background-color: #5AB439;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+}
+
+.timer {
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+    border: 1px solid #5AB439;
+    border-radius: 5px;
+    background-color: #5AB439;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+}
+
+.next:hover, .start:hover, .timer:hover {
+    background-color: white;
+}
+  
+.next:focus, .start:focus, .timer:focus {
+    outline:0;
+}
+
+.grey {
+    background-color: rgb(143, 143, 143);
+    border: 1px solid rgb(143, 143, 143);
+}
+
+.grey:hover {
+    background-color: rgb(143, 143, 143);
+}
+
+.sticky-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: red;
+    
+}
+
+.sticky-container {
+
+}
+
+.sticky-item {
+
 }

@@ -3,10 +3,7 @@ import React from 'react';
 const Start = ({ cookingStart }) => {
     return (
         <button
-            className='start'
-            style={{
-                width: '200px',
-            }}
+            className='cook'
             onClick={cookingStart}
         > Cook!</button >
     );

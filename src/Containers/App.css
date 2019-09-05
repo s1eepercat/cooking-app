@@ -27,3 +27,14 @@ body {
   margin-bottom: 30px;
   text-align: center;
 }
+
+@media only screen and (max-width: 1000px) {
+  .cooking-text {
+    font-size: 48px;
+  }
+
+  .title-text {
+    font-size: 32px;
+    margin-bottom: 25px;
+  }
+}

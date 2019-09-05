@@ -8,13 +8,14 @@ const StickyBar = ({ recipe, timers }) => {
 
         for (let i = 0; i < recipeLength; i++) {
             barArray.push(
-                <div key={i}>
-                    <span>{recipe[i].food}</span>
-                    <span>{recipe[i].action}</span>
-                    <span>{recipe[i].time}</span>
+                <div className='sticky-container' key={i}>
+                    <span className='sticky-item'>{recipe[i].food}</span>
+                    <span className='sticky-item'>{recipe[i].action}</span>
+                    <span className='sticky-item'>{recipe[i].time}</span>
                 </div>
             )
         }
+
         return barArray;
     }
 }
