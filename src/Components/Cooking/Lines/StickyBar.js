@@ -1,23 +1,44 @@
 import React from 'react';
 
-const StickyBar = ({ recipe, timers }) => {
+const StickyBar = ({ state }) => {
 
-    if (timers) {
-        const recipeLength = timers.length;
-        let barArray = [];
+    const secondsToHour = (sec) => {
+        sec = Number(sec);
+        var h = Math.floor(sec / 3600);
+        var m = Math.floor(sec % 3600 / 60);
+        var s = Math.floor(sec % 3600 % 60);
 
-        for (let i = 0; i < recipeLength; i++) {
+        var hDisplay = (h < 10) ? '0' + h : h;
+        var mDisplay = (m < 10) ? '0' + m : m;
+        var sDisplay = (s < 10) ? '0' + s : s;
+        return hDisplay + ' : ' + mDisplay + ' : ' + sDisplay;
+    }
+
+    const recipeLength = state.timers.length;
+    let barArray = [];
+
+    for (let i = 0; i < recipeLength; i++) {
+        if (state.recipe[i].timer > 0) {
             barArray.push(
                 <div className='sticky-container' key={i}>
-                    <span className='sticky-item'>{recipe[i].food}</span>
-                    <span className='sticky-item'>{recipe[i].action}</span>
-                    <span className='sticky-item'>{recipe[i].time}</span>
+                    <span className='sticky-item'>{state.recipe[i].food}</span>
+                    <span className='sticky-item'>{state.recipe[i].action}</span>
+                    <span className='sticky-item'>{secondsToHour(state.recipe[i].timer)}</span>
+                </div >
+            )
+        } else {
+            barArray.push(
+                <div className='sticky-container' key={i}>
+                    <span className='sticky-item'>{state.recipe[i].food}</span>
+                    <span className='sticky-item'>{state.recipe[i].action}</span>
+                    <span className='sticky-item'>is done!</span>
                 </div>
             )
         }
-
-        return barArray;
     }
+
+    return barArray;
+
 }
 
 export default StickyBar;

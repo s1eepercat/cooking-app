@@ -5,9 +5,9 @@ import Time from '../Text_in_lines/Time';
 
 const Line = ({ state }) => {
 
-    if (state.done === false) {
+    if (!state.done) {
 
-        if (state.onBreak === false) {
+        if (!state.onBreak) {
 
             return (
                 <div className='current-line'>

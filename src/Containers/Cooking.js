@@ -42,8 +42,8 @@ class Cooking extends Component {
     gotoNextLine = () => {
         if (this.state.started) {
             this.setState({ nextLine: true });
-            if (this.state.onBreak === true) this.setState({ currentLineSeconds: 0 }); //Reseting timers to remove timer delays on switch
-            if (this.state.onBreak === false) this.setState({ currentBreakSeconds: 0 });
+            if (this.state.onBreak) this.setState({ currentLineSeconds: 0 }); //Reseting timers to remove timer delays on switch
+            if (!this.state.onBreak) this.setState({ currentBreakSeconds: 0 });
         }
     }
 
@@ -67,11 +67,33 @@ class Cooking extends Component {
 
             //Add current seconds on that line into a recipe to create a fixed top line with that remaining time
             let currentRecipe = this.state.recipe;
-            currentRecipe[this.state.currentLine - 1].timer = this.state.currentLineSeconds;
+            currentRecipe[this.state.currentLine - 1].timer = (this.state.currentLineSeconds !== 0) ? this.state.currentLineSeconds : currentRecipe[this.state.currentLine - 1].time * 60;
             this.setState({ recipe: currentRecipe });
+
+            this.timerCount(currentRecipe[this.state.currentLine - 1].timer, this.state.currentLine - 1); //Creates a separate timer for a line
 
             this.setState({ nextLine: true });
         }
+    }
+
+    timerCount = (initialTime, lineToUpdate) => {
+        const cooking = this;
+        let seconds = initialTime;
+        let recipeToUpdate = this.state.recipe; //Copy original recipe
+
+        const counterTimer = setInterval(function () {
+            if (seconds > 0) {
+                seconds--;
+                recipeToUpdate[lineToUpdate].timer = seconds; //We update a copy
+                cooking.setState({ recipe: recipeToUpdate }); //We update a state
+                //The problem here was:
+                //recipe is an array with objects, one for a line
+                //since we here update object's values instead of an array itself, actual state (array) didn't change,
+                //and did not trigger rendering.
+            } else {
+                clearInterval(counterTimer);
+            }
+        }, 1000);
     }
 
     startBreak = () => {
@@ -139,7 +161,7 @@ class Cooking extends Component {
                 <h1 className='title-text'>Cooking!</h1>
 
                 <div className='sticky-bar'>
-                    <StickyBar recipe={this.state.recipe} timers={this.state.timers} />
+                    <StickyBar state={this.state} />
                 </div>
 
 
