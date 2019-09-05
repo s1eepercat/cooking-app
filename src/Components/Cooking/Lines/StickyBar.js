@@ -14,11 +14,11 @@ const StickyBar = ({ state }) => {
         return hDisplay + ' : ' + mDisplay + ' : ' + sDisplay;
     }
 
-    const recipeLength = state.timers.length;
+    const recipeLength = state.recipe.length;
     let barArray = [];
 
     for (let i = 0; i < recipeLength; i++) {
-        if (state.recipe[i].timer > 0) {
+        if (state.recipe[i].timer && state.recipe[i].timer > 0) {
             barArray.push(
                 <div className='sticky-container' key={i}>
                     <span className='sticky-item'>{state.recipe[i].food}</span>
@@ -26,9 +26,9 @@ const StickyBar = ({ state }) => {
                     <span className='sticky-item'>{secondsToHour(state.recipe[i].timer)}</span>
                 </div >
             )
-        } else {
+        } else if (state.recipe[i].timer <= 0) {
             barArray.push(
-                <div className='sticky-container' key={i}>
+                <div className='sticky-container blue' key={i}>
                     <span className='sticky-item'>{state.recipe[i].food}</span>
                     <span className='sticky-item'>{state.recipe[i].action}</span>
                     <span className='sticky-item'>is done!</span>

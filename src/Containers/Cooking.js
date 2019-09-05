@@ -73,6 +73,8 @@ class Cooking extends Component {
             this.timerCount(currentRecipe[this.state.currentLine - 1].timer, this.state.currentLine - 1); //Creates a separate timer for a line
 
             this.setState({ nextLine: true });
+
+            console.log(this.state.recipe);
         }
     }
 
