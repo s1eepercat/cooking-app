@@ -7,6 +7,7 @@ import Next from '../Components/Cooking/Buttons/Next';
 import Timer from '../Components/Cooking/Buttons/Timer';
 import Line from '../Components/Cooking/Lines/Line';
 import './Cooking.css';
+import ReactNoSleep from 'react-no-sleep';
 
 class Cooking extends Component {
     constructor(props) {
@@ -73,8 +74,6 @@ class Cooking extends Component {
             this.timerCount(currentRecipe[this.state.currentLine - 1].timer, this.state.currentLine - 1); //Creates a separate timer for a line
 
             this.setState({ nextLine: true });
-
-            console.log(this.state.recipe);
         }
     }
 
@@ -182,6 +181,17 @@ class Cooking extends Component {
                     <Timer makeTimer={this.makeTimer} state={this.state} />
                 </div>
 
+                <div className="nosleep-container">
+                    <ReactNoSleep>
+                        {({ isOn, enable, disable }) => (
+                            <button
+                                onClick={isOn ? disable : enable}
+                                className="nosleep-button">
+                                {isOn ? 'No-sleep is on' : 'No-sleep is off'}
+                            </button>
+                        )}
+                    </ReactNoSleep>
+                </div>
 
             </div >
         );

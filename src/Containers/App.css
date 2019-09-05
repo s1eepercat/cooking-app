@@ -2,13 +2,6 @@ body {
   background: linear-gradient(to right, rgb(254, 214, 151), rgb(252, 193, 97));
 }
 
-.navbar {
-  position: fixed;
-  height: 30px;
-  background-color: black;
-  width: 100%;
-}
-
 .cooking-text {
   color: #AA7D39;
   font-size: 96px;

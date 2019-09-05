@@ -2,8 +2,12 @@
     background-color: #5AB439;
     font-family: 'Chilanka', cursive;
     font-weight: 700;
-    font-size: 20px;
+    font-size: 24px;
     height: 155px;
+}
+
+.grey-line {
+    background-color: rgb(143, 143, 143);
 }
 
 .current-line-text-container {
@@ -19,7 +23,7 @@
 .current-line-time {
     text-align: center;
     font-size: 48px;
-    padding: 25px;
+    padding: 18px;
     padding-bottom: 15px;
 }
 
@@ -187,3 +191,27 @@
 .blue {
     background-color: rgb(86, 163, 250);
 }
+
+.nosleep-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+  }
+  
+.nosleep-button {
+    font-size: 30px;
+    font-family: 'Amatic SC', cursive;
+    font-weight: 700;
+    border: 1px solid #AA7D39;
+    border-radius: 5px;
+    background-color: #AA7D39;
+    padding: 10px;
+}
+  
+.nosleep-button:hover {
+    background-color: #FFF0DA;
+}
+
+.nosleep-button:focus{
+     outline:0;
+} 

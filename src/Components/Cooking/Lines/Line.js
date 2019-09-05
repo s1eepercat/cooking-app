@@ -8,9 +8,9 @@ const Line = ({ state }) => {
     if (!state.done) {
 
         if (!state.onBreak) {
-
+            // 'current-line'
             return (
-                <div className='current-line'>
+                <div className={!state.paused ? 'current-line' : 'current-line grey-line'}>
                     <div className='current-line-text-container'>
                         <div className='current-line-text'>
                             <Food state={state} line={state.currentLine - 1} />
