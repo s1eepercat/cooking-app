@@ -215,3 +215,37 @@
 .nosleep-button:focus{
      outline:0;
 } 
+
+
+@media only screen and (max-width: 1000px) {
+    .current-line {
+        font-size: 16px;
+        height: 100%;
+    }
+
+    .current-line-time {
+        font-size: 24px;
+    }
+
+    .next-text {
+        font-size : 12px;
+    }  
+
+    .next-text > p {
+        padding: 10px;
+    }
+
+    .previous-text {
+        font-size : 12px;
+    }
+
+    .previous-text > p {
+        padding: 10px;
+    }
+
+    .sticky-item {
+        font-size: 12px;
+    }
+
+
+}

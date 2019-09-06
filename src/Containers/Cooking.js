@@ -49,7 +49,7 @@ class Cooking extends Component {
     }
 
     makeTimer = () => {
-        if (!this.state.onBreak && this.state.started && !this.state.done && !this.state.makeTimerPrevent) {
+        if (!this.state.onBreak && this.state.started && !this.state.done && !this.state.makeTimerPrevent && this.state.recipe[this.state.currentLine - 1].time <= 5000) {
 
             this.setState({ makeTimerPrevent: true }); //Debug: prevents from double click > error on the very end (startCooking return it to false)
 
